@@ -1,0 +1,91 @@
+.modalDialog {
+  -moz-transition: opacity 400ms ease-in;
+  -webkit-transition: opacity 400ms ease-in;
+  background: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity 400ms ease-in;
+  z-index: 99999;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  background: -moz-linear-gradient(#ffffff, #999999);
+  background: -o-linear-gradient(#ffffff, #999999);
+  background: -webkit-linear-gradient(#ffffff, #999999);
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  position: relative;
+  width: 400px;
+}
+.close {
+  -moz-border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000000;
+  -webkit-border-radius: 12px;
+  -webkit-box-shadow: 1px 1px 3px #000000;
+  background: #606061;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  text-decoration: none;
+  top: -10px;
+  width: 24px;
+}
+.close:hover {
+  background: #00d9ff;
+}
+.terraButton {
+  -moz-border-radius: 6px;
+  -moz-box-shadow: inset 0px 1px 0px 0px #f29c93;
+  -webkit-border-radius: 6px;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #f29c93;
+  background-color: #fe1a00;
+  background: -moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: -ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: -o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+  background: -webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+  background: linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+  border-radius: 6px;
+  border: 1px solid #d83526;
+  box-shadow: inset 0px 1px 0px 0px #f29c93;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color0', GradientType=0);
+  font-family: Arial;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 17px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
+}
+.terraButton:hover {
+  background-color: #ce0100;
+  background: -moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: -ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: -o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00));
+  background: -webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+  background: linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color0', endColorstr='@color1', GradientType=0);
+}
+.terraButton:active {
+  position: relative;
+  top: 1px;
+}
