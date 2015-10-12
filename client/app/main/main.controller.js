@@ -11,6 +11,7 @@ function MainController($scope, $http, socket,$modal,angularLoad,$log,Product) {
     socket.syncUpdates('thing', self.awesomeThings);
   });
 
+
   this.addThing = function()   {
     if (self.newThing === '') {
       return;

@@ -8,6 +8,7 @@ describe('Controller: MainController', function() {
   beforeEach(module('socketMock'));
 
   var scope;
+  var rootScope;
   var MainController;
   var state;
   var $httpBackend;
@@ -18,15 +19,29 @@ describe('Controller: MainController', function() {
     $httpBackend.expectGET('/api/things')
       .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
 
+    rootScope = $rootScope;
     scope = $rootScope.$new();
     state = $state;
     MainController = $controller('MainController', {
       $scope: scope
     });
+
+    // Проверяем что бы поиск дал результаты
+    spyOn($rootScope, '$broadcast').and.callThrough();;
+
   }));
 
+
+  it('Search result must to be not null',function(){
+    rootScope.$broadcast('startSearch', 'n015578');
+    expect(scope.productsData).not.toBeNull();
+  });
+
   it('should attach a list of things to the controller', function() {
+    //$httpBackend.when('GET', '/api/things').respond(200);
     $httpBackend.flush();
     expect(MainController.awesomeThings.length).toBe(4);
   });
+
+
 });

@@ -22,12 +22,12 @@ angular.module('spa3App', [
     $httpProvider.interceptors.push('authInterceptor');
 
     /* register terraProtocol */
-     try {
+     /*try {
       navigator.registerProtocolHandler(
         'web+terraorder', 'http://localhost:9000/?pq=%s', 'Terra');
-      }catch(err){
-       console.error("Handler no supported "+err);
-      }
+        }catch(err){
+        console.error("Handler no supported "+err);
+      }*/
 
   })
 
