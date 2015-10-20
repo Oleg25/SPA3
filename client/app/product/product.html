@@ -1,0 +1,109 @@
+<div ng-controller="productController">
+<table class="table table-striped table-bordered goods" ng-show="data.length">
+    <tr>
+        <td>
+            Название
+        </td>
+        <td>
+            Ед. измерения
+        </td>
+        <td>
+            Цена
+        </td>
+        <td>
+            Износостойкость
+        </td>
+        <td>
+            Цвет
+        </td>
+        <td>
+            Картинка
+        </td>
+    </tr>
+    <tr ng-repeat="item in data" ng-click="clickItem($index)" class="hand">
+        <td>
+            {{item.name}}
+        </td>
+        <td>
+            {{item.unit}}
+        </td>
+        <td>
+            {{item.price}} руб.
+        </td>
+        <td>
+            {{item.iznos}}
+        </td>
+        <td>
+            {{item.color}}
+        </td>
+        <td>
+            <img ng-src="{{item.imgUrl}}" style="width: 50px">
+        </td>
+    </tr>
+</table>
+
+
+
+<div class="row" ng-show="analogs && analogs.length">
+    <h2>Похожие товары</h2>
+    <div class="col-xs-6 col-md-2" ng-repeat="item in analogs">
+        <div class="text">{{item.aname}}</div>
+        <div class="thumbnail">
+            <img ng-src="{{item.imgUrl}}" alt="{{item.aname}}" style="width: 160px;height: 110px;">
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="accessories && accessories.length">
+    <h2>С этим товаром покупают</h2>
+    <div class="col-xs-6 col-md-2" ng-repeat="item in accessories">
+        <div class="text">{{item.itemName}}</div>
+        <div class="thumbnail">
+            <img ng-src="{{item.imgURL}}" alt="{{item.itemName}}" style="width: 50px;">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Остатки на складе</h3>
+        <div class="box-tools pull-right">
+          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          <div class="btn-group">
+            <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" ng-click="isReserveOpen = !isReserveOpen">Неоплаченные резервы</a></li>
+              <li><a href="#" ng-click="isTransOpen = !isTransOpen">Товары в пути</a></li>
+              <li class="divider"></li>
+              <li><a href="#">История просмотров</a></li>
+            </ul>
+          </div>
+          <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+      </div><!-- /.box-header -->
+      <div class="box-body">
+
+        <div class="row">
+          <div ng-grid="gridOptions" style="height: 250px; width: auto">
+          </div>
+
+        </div><!-- /.row -->
+      </div><!-- ./box-body -->
+
+
+    </div><!-- /.box -->
+  </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div ng-show="isReserveOpen" id="reserve" class="row">
+  <h4>Резервы</h4>
+  <div ng-grid="gridReserve" style="height: 250px;"></div>
+</div>
+
+<div ng-show="isTransOpen" id="trans" class="row">
+  <h4>Товары в пути</h4>
+  <div ng-grid="gridTrans" style="height: 250px;"></div>
+</div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('spa3App')
-  .controller('NavbarCtrl', function ($scope, Auth, Modal) {
+  .controller('NavbarCtrl', function ($scope, Auth) {
     $scope.menu = [{
       'title': 'Главная',
       'state': 'main'
@@ -15,7 +15,4 @@ angular.module('spa3App')
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.animationsEnabled = true;
 
-
   });
-
-

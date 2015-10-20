@@ -3,6 +3,7 @@
   <div class="container">
     <div class="navbar-header">
 
+
       <!-- Sidebar toggle button-->
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -10,14 +11,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Интерфейс продовца</a>
+      <a href="/" class="navbar-brand">{{"Seller Interface" | translate}}</a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
 
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Регистрация</a></li>
         <li ng-hide="isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Войти</a></li>
-        <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
+        <li ng-show="isLoggedIn()"><p class="navbar-text">{{"Hello" | translate}} {{ getCurrentUser().name }}</p> </li>
         <li ng-show="isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="isLoggedIn()"><a ui-sref="logout">Выйти</a></li>
       </ul>

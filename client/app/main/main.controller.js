@@ -1,10 +1,20 @@
 'use strict';
 (function() {
 
-function MainController($scope, $http, socket,$modal,angularLoad,$log,Product) {
+function MainController($scope, $http, socket,$modal,angularLoad,$log,hotkeys) {
   var self = this;
   this.awesomeThings = [];
   var isLive = false;
+
+  hotkeys.bindTo($scope)
+    .add({
+      combo: 'ctrl+f',
+      callback: function(event) {
+        event.preventDefault();
+        document.getElementById('sb').focus();
+      }
+    })
+
 
   $http.get('/api/things').then(function(response) {
     self.awesomeThings = response.data;
@@ -28,14 +38,8 @@ function MainController($scope, $http, socket,$modal,angularLoad,$log,Product) {
     socket.unsyncUpdates('thing');
   });
 
-  $scope.$on('startSearch', function (event, data) {
-    $scope.productsData = Product.query({itemcode: data.sParam});
-  });
 
-  $scope.gridOptions = {
-    data: 'productsData',
-    jqueryUITheme: true
-  };
+
 
   $scope.open = function (size) {
 

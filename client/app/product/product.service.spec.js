@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: Product', function () {
+describe('Service: product', function () {
 
   // load the service's module
   beforeEach(module('spa3App'));
 
   // instantiate service
-  var Product;
-  beforeEach(inject(function (_Product_) {
-    Product = _Product_;
+  var product;
+  beforeEach(inject(function (_product_) {
+    product = _product_;
   }));
 
-  it('should search items in stock', function () {
-    expect(!!Product).toBe(true);
+  it('should do something', function () {
+    expect(!!product).toBe(true);
   });
 
 });

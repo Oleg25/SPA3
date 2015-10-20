@@ -6,10 +6,12 @@
     <!-- search form -->
     <div class="sidebar-form">
       <div class="input-group">
-        <input type="text" ng-model="searchBox" id="sb" class="form-control" placeholder="Код номенклатуры...">
+        <input type="text"
+               ng-model="searchBox"
+               id="sb" class="form-control"
+               placeholder="Код номенклатуры...">
               <span class="input-group-btn">
                 <button ng-click="search();" name="search" id="search-btn" class="btn btn-flat">
-                  <!--<i class="fa fa-search"></i>-->
                   <i class="fa fa-search"></i>
                 </button>
         </span>
@@ -27,46 +29,25 @@
       <li class="header">
       </li>
 
-      <li class="treeview">
-        <a href="pages/calendar.html">
-          <i class="fa fa-cube"></i> <span>Товар</span>
-          <i class="fa fa-angle-left pull-right"></i>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Остатки на складе</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Характеристики</a></li>
-          </ul>
-        </a>
-      </li>
-
       <li>
-        <a href="pages/calendar.html">
+        <a href="/cart">
           <i class="fa fa-shopping-cart"></i> <span>Корзина</span>
 
         </a>
       </li>
 
       <li>
-        <a href="pages/calendar.html">
+        <a href="/orders">
           <i class="fa fa-credit-card"></i> <span>Заказы</span>
         </a>
       </li>
 
 
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-user"></i> <span>Клиенты</span>
-          <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i>Новая анкета</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i>Общая скидка</a></li>
-        </ul>
-      </li>
       <li class="header">Для разработчиков</li>
-       <li><a href="http://192.168.9.237:8080/si/" target="_blank"><i class="fa fa-book"></i>
+       <li><a href="/docs" target="_blank"><i class="fa fa-book"></i>
          <span>Документация REST</span></a>
        </li>
-       <li><a href="http://192.168.9.237:9000/test/" target="_blank"><i class="fa fa-gg"></i>
+       <li><a href="/test" target="_blank"><i class="fa fa-gg"></i>
          <span>Тесты</span></a>
        </li>
     </ul>

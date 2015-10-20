@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('spa3App')
-  .factory('Product', ['$resource','REST_API',function ($resource,REST_API) {
-     return $resource(REST_API+"stocks/:itemcode", { itemcode: "@itemcode" }
-     );
+  .factory('product', ['$resource','UrlApi','$http',function ($resource,UrlApi,$http) {
+       // Public API here
+    var product = $resource(UrlApi.baseAPI+UrlApi.endPoint.product+":itemcode/:subType", {
+        itemcode: "@itemcode",
+        subType:  "@subType"
+         },{
+         'query':  {method:'GET', isArray:true}
+      });
+    return product;
+
   }]);

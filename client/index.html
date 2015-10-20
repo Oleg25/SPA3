@@ -30,11 +30,15 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
+      <link rel="stylesheet" href="bower_components/angular-hotkeys/build/hotkeys.css" />
+      <link rel="stylesheet" href="bower_components/angular-wizard/dist/angular-wizard.min.css" />
+      <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
       <!-- injector:css -->
       <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/cart/cart.css">
       <link rel="stylesheet" href="components/leftbar/leftbar.css">
       <!-- endinjector -->
     <!-- endbuild -->
@@ -47,6 +51,7 @@
     <link rel="stylesheet" href="bower_components/adminlte/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="bower_components/adminlte/dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="assets/styles/custom.css">
+
   </head>
 
   <body ng-app="spa3App" class="{{bodylayout}}">
@@ -64,12 +69,14 @@
     <script async src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- TODO: Try to use Lazy load (require.js) -->
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-load/angular-load.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-socket-io/socket.js"></script>
@@ -77,6 +84,18 @@
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/ng-grid/build/ng-grid.js"></script>
+      <script src="bower_components/angular-translate/angular-translate.js"></script>
+      <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+      <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+      <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+      <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+      <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+      <script src="bower_components/angular-hotkeys/build/hotkeys.js"></script>
+      <script src="bower_components/ngCart/dist/ngCart.js"></script>
+      <script src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
+      <script src="bower_components/webcamjs/webcam.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -89,18 +108,23 @@
       <script src="app/account/signup/signup.controller.js"></script>
       <script src="app/admin/admin.controller.js"></script>
       <script src="app/admin/admin.js"></script>
-      <script src="app/cart/cart.service.js"></script>
-      <script src="app/client/client.service.js"></script>
+      <script src="app/cart/cart.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
-      <script src="app/order/order.service.js"></script>
+      <script src="app/order/currentOrder.js"></script>
+      <script src="app/product/product.controller.js"></script>
+      <script src="app/product/product.directive.js"></script>
       <script src="app/product/product.service.js"></script>
+      <script src="app/stock/stock.controller.js"></script>
+      <script src="app/stock/stock.directive.js"></script>
       <script src="app/stock/stock.service.js"></script>
       <script src="components/auth/auth.service.js"></script>
       <script src="components/auth/user.service.js"></script>
       <script src="components/footer/footer.directive.js"></script>
       <script src="components/leftbar/leftbar.controller.js"></script>
       <script src="components/leftbar/leftbar.directive.js"></script>
+      <script src="components/locale/LanguageSelectDirective.js"></script>
+      <script src="components/locale/locale.service.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
@@ -108,7 +132,7 @@
       <script src="components/socket/socket.service.js"></script>
       <!-- endinjector -->
      <!-- endbuild -->
-    <script src="bower_components/angular-load/angular-load.js"></script>
+
 
     <!--Admin LTE scripts-->
     <!-- Bootstrap 3.3.5 -->
@@ -126,7 +150,6 @@
     <script src="bower_components/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- ChartJS 1.0.1 -->
     <script src="bower_components/adminlte/plugins/chartjs/Chart.min.js"></script>
-
 
 
     <!-- Graceful degradation - my first experience -->

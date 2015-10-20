@@ -1,0 +1,9 @@
+{
+  "PAGE_TITLE": "i18n для ваших AngularJS приложений",
+  "PAGE_CONTENT": "Как переводить ваши AngularJS приложения без перезагрузки страницы с angular-translate",
+
+  "Seller Interface": "Интерфейс Продавца",
+  "Hello": "Привет",
+
+  "directives.language-select.Language": "Язык"
+}

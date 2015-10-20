@@ -1,0 +1,36 @@
+
+<div class="container-fluid" ng-controller="currentOrderController">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <client params="clientParams"></client>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="basket in baskets">
+            <h4 ng-bind="basket.code"></h4>
+            <table class="table table-striped items">
+                <thead>
+                <tr>
+                    <th><span style="color: black">Код номенклатуры</span></th>
+                    <th><span style="color: black">Количество</span></th>
+                    <th><span style="color: black">Цена</span></th>
+                    <th><span style="color: black">Действия</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in basket.items" class="{{StConf[item.status].systemName}}">
+                    <td ng-bind="item.itemID"></td>
+                    <td ng-bind="item.Qty"></td>
+                    <td ng-bind="item.Amount"></td>
+                    <td>
+                        <a href class="btn btn-success btn-sm" ng-click="setStatus(item, '10')">В заказ</a>
+                        <a href class="btn btn-primary btn-sm" ng-click="setStatus(item, '30')" ng-disabled="item.status == 0">В резерв</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
