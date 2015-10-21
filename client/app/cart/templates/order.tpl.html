@@ -32,7 +32,9 @@
       </a>
     </div>
    </div>
-  <hr/>
+
+  <a class="btn btn-default" href="/">Добавить товар</a>
+  <hr />
 
   <div class="row">
     <div class="col-xs-6 col-sm-3">
@@ -69,10 +71,10 @@
       </div>
     </div>
     <div class="col-xs-6 col-sm-3">
-      <h4>Корзина #2 (Сантехника)</h4>
+      <h4>Корзина #3 (Сантехника)</h4>
 
       <p> $15.29</p>
-      <ngcart-addtocart id="item2" name="Корзина #2" price="15.29" quantity="1" quantity-max="5">В заказ
+      <ngcart-addtocart id="item2" name="Корзина #5" price="15.29" quantity="1" quantity-max="5">В заказ
       </ngcart-addtocart>
     </div>
   </div>
@@ -90,10 +92,14 @@
         <div class="col-xs-4">
           <!--<ngcart-checkout service="http" settings="httpSettings">Оформить</ngcart-checkout>-->
           <button class="btn btn-primary" ng-click="makeOrder()">Оформить</button>
-            <br />
-           <a class="btn btn-primary" href="/orders">Перейти в заказы</a>
 
         </div>
+        <div class="col-xs-4">
+
+         <a class="btn btn-primary" href="/orders">Перейти в заказы</a>
+
+        </div>
+
       </div>
 
     </div>

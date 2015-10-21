@@ -48,7 +48,6 @@ angular.module('spa3App', [
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
 
-
     /* register terraProtocol */
      /*try {
       navigator.registerProtocolHandler(

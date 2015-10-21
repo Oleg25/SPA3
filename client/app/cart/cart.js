@@ -65,6 +65,7 @@ var app = angular.module('spa3App')
         });
       };
 
+
       $scope.makeOrder = function makeOrder() {
         if (!$scope.clientParams.client.code) {
           toastr.warning('Укажите код клиента', 'Ошибка валидации');
